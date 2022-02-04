@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReembolsoComponent } from './reembolso.component';
-import { SharedsModule } from '../shareds/shareds.module';
+import { sharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 
 const route: Routes = [{
@@ -16,7 +16,7 @@ const route: Routes = [{
   ],
   imports: [
     CommonModule,
-    SharedsModule,
+    sharedModule,
     RouterModule.forChild(route),
   ],
   exports: [

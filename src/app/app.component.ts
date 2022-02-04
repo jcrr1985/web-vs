@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Persona } from './shareds/interfaces/interfaces';
+import { Persona } from './shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { Persona } from './shareds/interfaces/interfaces';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string = 'super app';
+  title: string = 'web app';
 
   constructor(){
   }
