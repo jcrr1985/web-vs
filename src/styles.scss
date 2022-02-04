@@ -1,0 +1,36 @@
+@import "~@vs-design-system/ds-tokens/build/css/tokens.css";
+
+// active card with border
+.css-11d6cxn {
+  width: auto !important;
+  height: 60px !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  border-top: 1px solid grey !important;
+  border-right: 1px solid grey !important;
+  border-bottom: 1px solid grey !important;
+  border-left-color: #ef6f00 !important;
+  background-color: none !important;
+  margin-bottom: 10px !important;
+  margin-left: 10px !important;
+}
+
+// inactive card
+.css-ak9sdm {
+  width: auto !important;
+  height: 60px !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  border: 1px solid grey !important;
+  background-color: none !important;
+  margin-bottom: 10px !important;
+  margin-left: 10px !important;
+}
+
+.css-8h3l1g {
+  margin-top: 10px !important;
+}

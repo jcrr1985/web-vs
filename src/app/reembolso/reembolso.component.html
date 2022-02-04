@@ -1,0 +1,134 @@
+<!-- Title router -->
+<div class="grid grid-cols-12 border-b-2 h-24">
+    <ds-title class="md:col-span-6 col-span-12 font-bold text-xl flex items-center justify-start px-5" type="t4"
+        family="secondary" weight="bold" color="primary">
+        <span slot="text">Solicitud de Reembolso</span>
+    </ds-title>
+    <div class="md:col-span-6 col-span-12 flex items-center md:justify-end justify-start px-5">
+        <ds-button variant="complementary" slotName="back-button-slot">
+            <ds-icon color="info6" size="30" icon-name="bi-arrow-left-short" slot="back-button-slot"></ds-icon>
+            <span slot="back-button-slot">volver atrás</span>
+        </ds-button>
+        <br />
+    </div>
+</div>
+
+<div class="pb-20">
+    <!-- QUIEN SE ATENDIO -->
+    <section class="my-10 flex items-center justify-start">
+        <ds-stepper orientation="vertical" source='[{"label":"", "status":"completed", "icon": "bi-check-circle"}]'>
+        </ds-stepper>
+        <div class="grid grid-cols-12 gap-8">
+            <ds-title class="col-span-12" type="t4" family="secondary" weight="bold" color="primary">
+                <span slot="text">¿Quien se atendió?</span>
+            </ds-title>
+            <ds-input [state]="'success'" [initialLabel]="'Elige una persona'" class="col-span-12" size="s2"
+                [helperMessage]="''" labelOrientation="start">
+            </ds-input>
+        </div>
+    </section>
+
+    <!-- SELECCIONA TU PRESTACION -->
+    <section class="my-10 flex items-center justify-start">
+        <ds-stepper orientation="vertical" source='[{"label":"", "status":"completed", "icon": "bi-check-circle"}]'>
+        </ds-stepper>
+        <div class="grid grid-cols-12 w-full gap-2 pr-5">
+            <ds-title class="col-span-12 mb-4" type="t4" family="secondary" weight="bold" color="primary">
+                <span slot="text">Selecciona tu prestación</span>
+            </ds-title>
+            <ng-container *ngFor="let card of chipsData; let i = index">
+                <ds-card class="md:col-span-4 sm:col-span-6 col-span-12" [type]="card.state ? 't1' : 't2'"
+                    (click)="setColor(i)">
+                    <div class="flex items-center justify-around" slot="cardContent">
+                        <ds-icon [color]="card.state ? 'actionTertiary' : 'actionPrimary'" size="42"
+                            iconName="{{ card.nombre }}">
+                        </ds-icon>
+                        <ds-paragraph type="p1" family="primary" weight="regular">
+                            <span [ngStyle]="{ color: card.state ? '#EF6F00' : '#43505E'}" class="card-text"
+                                slot="text">
+                                {{ card.desripcion }}
+                            </span>
+                        </ds-paragraph>
+                    </div>
+                </ds-card>
+            </ng-container>
+        </div>
+    </section>
+
+    <!-- DATOS GENERALES -->
+    <section class="my-10 flex items-center justify-start">
+        <ds-stepper [orientation]="'vertical'"
+            [source]='[{"label":"", "status":"completed", "icon": "bi-check-circle"}]'>
+        </ds-stepper>
+        <div class="grid grid-cols-12 w-full gap-4 pr-5">
+            <!-- Title -->
+            <ds-title class="col-span-12" type="t4" family="secondary" weight="bold" color="primary">
+                <span slot="text">Datos Generales</span>
+            </ds-title>
+            <!-- Reembolsaste -->
+            <ds-paragraph class="md:col-span-6 col-span-12 mb-5 fixedWidth" type="p1" family="secondary" weight="semiBold"
+                color="secondary">
+                <span slot="text" class="font-bold">¿Reembolsaste previamente en tu Isapre o Fonasa?</span>
+            </ds-paragraph>
+            <div class="md:col-span-6 col-span-12 flex items-center relative right-5">
+                <ds-radio class="mx-5" type="s2" family="primary" label="Si" name="reembolsoIsapre" value="sí"
+                    [checked]='true'>
+                </ds-radio>
+                <ds-radio class="mx-5" type="s2" family="primary" label="No" name="reembolsoIsapre" value="no">
+                </ds-radio>
+            </div>
+
+            <!-- documento -->
+            <ds-paragraph class="md:col-span-6 col-span-12 mb-2" type="p1" family="primary" weight="regular"
+                color="secondary">
+                <span slot="text" class="font-bold">Selecciona uno de los siguientes documentos
+                    <ds-tooltip family="primary" content="Documentos disponibles">
+                        <ds-icon slot="tooltip" color="actionPrimary" size="28" icon-name="bi-question-circle-fill">
+                        </ds-icon>
+                    </ds-tooltip>
+                </span>
+            </ds-paragraph>
+            <div class="md:col-span-12 md:flex items-center justify-start block">
+                <ds-radio class="mx-5 md:w-max" type="s1" family="primary" label="Documento reembolso isapre o fonasa"
+                    name="documentType" value="3" [checked]='true'>
+                </ds-radio>
+                <ds-radio class="mx-5 md:w-max" type="s1" family="primary" label="Bono" name="documentType" value="0">
+                </ds-radio>
+                <ds-radio class="mx-5 md:w-max" type="s1" family="primary" label="Boleta / Factura" name="documentType"
+                    value="0">
+                </ds-radio>
+            </div>
+
+            <!-- Completa los siguientes datos -->
+            <ds-paragraph class="col-span-12 mt-10" type="p1" family="primary" weight="regular" color="secondary">
+                <span slot="text" class="font-bold">completa los siguientes datos </span>
+            </ds-paragraph>
+            <div class="md:col-span-4 sm:col-span-6 col-span-12">
+                <ds-input [helperMessage]="''" [initialLabel]="'Isapre'" size="s2" labelOrientation="start">
+                </ds-input>
+            </div>
+            <div class="md:col-span-4 sm:col-span-6 col-span-12">
+                <ds-input [helperMessage]="''" [initialLabel]="'Rut institucion/prestador'" size="s2"
+                    labelOrientation="start">
+                </ds-input>
+            </div>
+            <div class="md:col-span-4 sm:col-span-6 col-span-12">
+                <ds-input [helperMessage]="''" [initialLabel]="'Nº Boleta/Factura'" size="s2" labelOrientation="start">
+                </ds-input>
+            </div>
+        </div>
+    </section>
+    <!-- Button siguiente -->
+    <section class="my-10 grid grid-cols-12">
+        <div class="md:col-start-9 md:col-span-4 sm:col-span-12 flex items-center justify-around">
+            <ds-button [size]="'s2'" variant="secondary" slot-name="cancel-button-slot">
+                <span slot="cancel-button-slot">Cancelar</span>
+            </ds-button>
+            <ds-button [size]="'s2'" variant="primary" slot-name="next-button-slot">
+                <span slot="next-button-slot"> Siguiente </span>
+            </ds-button>
+        </div>
+
+
+    </section>
+</div>
