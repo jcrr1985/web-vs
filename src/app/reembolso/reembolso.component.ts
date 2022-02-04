@@ -6,7 +6,7 @@ import '@vs-design-system/ds-title'
 import '@vs-design-system/ds-tooltip'
 import '@vs-design-system/ds-button'
 
-import { Chip } from '../shareds/interfaces/interfaces';
+import { Chip } from '../shared/interfaces/interfaces';
 
 
 @Component({

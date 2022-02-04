@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReembolsoModule } from './reembolso/reembolso.module';
-import { SharedsModule } from './shareds/shareds.module';
+import { sharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { SharedsModule } from './shareds/shareds.module';
     BrowserModule,
     AppRoutingModule,
     ReembolsoModule,
-    SharedsModule
+    sharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],
